@@ -1,62 +1,26 @@
-$
-2
-+
-
-External change
-@
-ExternalChange
-Common
-?K
-
-External change
-Cu
-ExternalChange
-Common
-@
-~
-
-J
-J
-R
-
-Md
-M]c
-
-R
-R
-o
-
-R
-
-R
-
-SN
-SG_
-
-\]
-\Q
-
-\j
-\]
-
-a{
-ao
-
-d:
-d:#
-
-dD&
-d:
-
-d
-d
-V
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-e]
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
-e
-W
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { LanguageService } from './language.service';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  ls = inject(LanguageService);
+}

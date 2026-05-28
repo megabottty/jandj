@@ -1,4 +1,36 @@
-app.component.html
-7
-
-O
+<mat-toolbar color="primary" class="main-nav">
+  <span class="logo" routerLink="/">J&J Yard Services</span>
+  <span class="spacer"></span>
+  <div class="nav-links">
+    <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      {{ ls.t('nav.home') }}
+    </button>
+    <button mat-button routerLink="/about" routerLinkActive="active">
+      {{ ls.t('nav.about') }}
+    </button>
+    <button mat-button routerLink="/contact" routerLinkActive="active">
+      {{ ls.t('nav.contact') }}
+    </button>
+    <button mat-icon-button (click)="ls.toggle()" [title]="ls.lang() === 'en' ? 'Español' : 'English'">
+      <mat-icon>language</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <h3>J&J Yard Services</h3>
+        <p>&copy; 2024. All rights reserved.</p>
+      </div>
+      <div class="footer-contact">
+        <p [innerHTML]="ls.t('contact.emailAddress')"></p>
+      </div>
+    </div>
+  </div>
+</footer>
