@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LanguageService } from '../language.service';
 
 @Component({
@@ -20,7 +21,8 @@ import { LanguageService } from '../language.service';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
