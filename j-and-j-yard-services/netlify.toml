@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/j-and-j-yard-services"
+  publish = "dist/j-and-j-yard-services/browser"
   functions = "netlify/functions"
 
 # Note: set SENDGRID_API_KEY, RECIPIENT_EMAIL, FROM_EMAIL in Netlify UI (Site settings > Build & deploy > Environment)

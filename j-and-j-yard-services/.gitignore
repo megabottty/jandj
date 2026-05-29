@@ -1,4 +1,28 @@
-$
-
-Junie Create .env
-Junie
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.cproject
+.settings/
+.vscode/
+.nbproject/
+*.swp
+*.bak
+*.tmp
+*.temp
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+Thumbs.db
