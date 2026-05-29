@@ -5,11 +5,14 @@ exports.handler = async function(event, context) {
     const body = JSON.parse(event.body || '{}');
     const { name, email, phone, subject, message } = body;
     const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-    const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'jandjyardservices64@gmail.com';
-    const FROM_EMAIL = process.env.FROM_EMAIL || RECIPIENT_EMAIL;
+    const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL;
+    const FROM_EMAIL = process.env.FROM_EMAIL;
 
-    if (!SENDGRID_API_KEY || !RECIPIENT_EMAIL) {
-      return { statusCode: 500, body: 'Server not configured: missing environment variables.' };
+    if (!SENDGRID_API_KEY || !RECIPIENT_EMAIL || !FROM_EMAIL) {
+      return { 
+        statusCode: 500, 
+        body: 'Server not configured: missing environment variables (SENDGRID_API_KEY, RECIPIENT_EMAIL, or FROM_EMAIL).' 
+      };
     }
 
     sgMail.setApiKey(SENDGRID_API_KEY);
