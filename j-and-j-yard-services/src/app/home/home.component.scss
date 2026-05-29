@@ -1,38 +1,32 @@
-
-External change
-;w
-ExternalChange
-Common
-1
-=
-
-K$(
-J
-
-K
-T
-K$)
-
-LLY
-K
-V
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-P
-t
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
-R
-j
-P
-B
-
-R
-R
-
-R
-R
-
-m,2
+.hero {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/well-maintained-orchid-garden-in-the-spacious-backyard-of-the-house-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .hero-content {
+    max-width: 800px;
+    padding: 20px;
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}

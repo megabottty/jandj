@@ -1,55 +1,53 @@
-1
-=
-@9<
-
-L
-L
-
-Junie Terminal Command: npm
-M
-Junie
-Md
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-[V
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
- Junie Create language.service.ts
-\"
-Junie
-Yj
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-]
-J
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
-afe
-\
-G
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-bc|
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
-d: 
-a{
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-[
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
-Junie Create netlify.toml
-c
-Junie
-~
-
-z
+<div class="contact-container">
+  <mat-card class="contact-card">
+    <mat-card-header>
+      <mat-card-title>{{ ls.t('contact.title') }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="success" class="success-msg">
+        <mat-icon>check_circle</mat-icon>
+        <span>{{ success }}</span>
+      </div>
+
+      <div *ngIf="error" class="error-msg">
+        {{ error }}
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ ls.lang() === 'en' ? 'Name' : 'Nombre' }}</mat-label>
+          <input matInput formControlName="name" required>
+        </mat-form-field>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ ls.t('contact.emailLabel') }}</mat-label>
+            <input matInput formControlName="email" type="email" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ ls.lang() === 'en' ? 'Phone' : 'Teléfono' }}</mat-label>
+            <input matInput formControlName="phone">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ ls.lang() === 'en' ? 'Subject' : 'Asunto' }}</mat-label>
+          <input matInput formControlName="subject" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ ls.lang() === 'en' ? 'Message' : 'Mensaje' }}</mat-label>
+          <textarea matInput formControlName="message" rows="5" required></textarea>
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || submitting">
+            <mat-icon *ngIf="submitting"><mat-spinner diameter="18"></mat-spinner></mat-icon>
+            {{ ls.lang() === 'en' ? 'Send Message' : 'Enviar Mensaje' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

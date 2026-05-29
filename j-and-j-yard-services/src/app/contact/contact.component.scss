@@ -1,17 +1,44 @@
-1
-=
-
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-L
-Junie
-GJunie Task Finished: Enhance Angular SPA for Landscaping Website Appeal
-68195abb
-
-M]a
-L
-
-SG\
-R
-#
-
-m~
+.contact-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.contact-card {
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.success-msg {
+  color: #4caf50;
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-msg {
+  color: #f44336;
+  background: #ffebee;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
