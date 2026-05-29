@@ -1,17 +1,70 @@
+.contact-page {
+  background: var(--light-bg);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
 .contact-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 1100px;
+  margin: 80px auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 0;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  overflow: hidden; /* Ensures contents don't bleed out or show gaps */
+}
+
+.contact-info {
+  background: var(--primary-color);
+  color: white;
+  padding: 60px;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h2 {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  p {
+    opacity: 0.7;
+    margin-bottom: 40px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .info-items {
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
 }
 
 .contact-card {
-  padding: 20px;
+  padding: 60px;
+  border-radius: 0;
+  box-shadow: none;
+  background: white;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 5px;
 }
 
 .full-width {
@@ -21,24 +74,49 @@
 .form-actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 30px;
+
+  button {
+    padding: 0 60px;
+    height: 60px;
+    font-size: 1rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
 }
 
 .success-msg {
-  color: #4caf50;
+  color: #2e7d32;
   background: #e8f5e9;
   padding: 15px;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
+  font-weight: 500;
 }
 
 .error-msg {
-  color: #f44336;
+  color: #c62828;
   background: #ffebee;
   padding: 15px;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 20px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    margin: 40px 20px;
+  }
+  .contact-info {
+    padding: 30px;
+  }
+  .contact-card {
+    padding: 20px;
+  }
 }

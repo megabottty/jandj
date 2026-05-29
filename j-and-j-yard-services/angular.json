@@ -25,6 +25,8 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "ssr": false,
+            "prerender": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -97,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f0977742-d6c4-4339-a0d4-e0247dbc98df"
   }
 }

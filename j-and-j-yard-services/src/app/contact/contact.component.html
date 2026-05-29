@@ -1,53 +1,79 @@
-<div class="contact-container">
-  <mat-card class="contact-card">
-    <mat-card-header>
-      <mat-card-title>{{ ls.t('contact.title') }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div *ngIf="success" class="success-msg">
-        <mat-icon>check_circle</mat-icon>
-        <span>{{ success }}</span>
+<div class="contact-page section-padding">
+  <div class="contact-container">
+    <div class="contact-info">
+      <div>
+        <h2>{{ ls.t('contact.title') }}</h2>
+        <p>{{ ls.lang() === 'en' ? 'Let us help you create the yard of your dreams. Get in touch for a free estimate!' : 'Permítanos ayudarle a crear el patio de sus sueños. ¡Contáctenos para un presupuesto gratuito!' }}</p>
+        
+        <div class="info-items">
+          <div class="info-item">
+            <mat-icon>email</mat-icon>
+            <span>{{ ls.t('contact.emailAddress') }}</span>
+          </div>
+          <div class="info-item">
+            <mat-icon>phone</mat-icon>
+            <span>{{ ls.t('contact.phone') }}</span>
+          </div>
+          <div class="info-item">
+            <mat-icon>location_on</mat-icon>
+            <span>Serving our local community</span>
+          </div>
+        </div>
       </div>
 
-      <div *ngIf="error" class="error-msg">
-        {{ error }}
+      <div class="social-links" style="display: flex; gap: 20px;">
+        <mat-icon>facebook</mat-icon>
+        <mat-icon>camera_alt</mat-icon>
       </div>
+    </div>
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>{{ ls.lang() === 'en' ? 'Name' : 'Nombre' }}</mat-label>
-          <input matInput formControlName="name" required>
-        </mat-form-field>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-          <mat-form-field appearance="outline">
-            <mat-label>{{ ls.t('contact.emailLabel') }}</mat-label>
-            <input matInput formControlName="email" type="email" required>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>{{ ls.lang() === 'en' ? 'Phone' : 'Teléfono' }}</mat-label>
-            <input matInput formControlName="phone">
-          </mat-form-field>
+    <mat-card class="contact-card">
+      <mat-card-content>
+        <div *ngIf="success" class="success-msg">
+          <mat-icon>check_circle</mat-icon>
+          <span>{{ success }}</span>
         </div>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>{{ ls.lang() === 'en' ? 'Subject' : 'Asunto' }}</mat-label>
-          <input matInput formControlName="subject" required>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>{{ ls.lang() === 'en' ? 'Message' : 'Mensaje' }}</mat-label>
-          <textarea matInput formControlName="message" rows="5" required></textarea>
-        </mat-form-field>
-
-        <div class="form-actions">
-          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || submitting">
-            <mat-icon *ngIf="submitting"><mat-spinner diameter="18"></mat-spinner></mat-icon>
-            {{ ls.lang() === 'en' ? 'Send Message' : 'Enviar Mensaje' }}
-          </button>
+        <div *ngIf="error" class="error-msg">
+          {{ error }}
         </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ ls.lang() === 'en' ? 'Name' : 'Nombre' }}</mat-label>
+            <input matInput formControlName="name" required>
+          </mat-form-field>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ ls.t('contact.emailLabel') }}</mat-label>
+              <input matInput formControlName="email" type="email" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>{{ ls.lang() === 'en' ? 'Phone' : 'Teléfono' }}</mat-label>
+              <input matInput formControlName="phone">
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ ls.lang() === 'en' ? 'Subject' : 'Asunto' }}</mat-label>
+            <input matInput formControlName="subject" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ ls.lang() === 'en' ? 'Message' : 'Mensaje' }}</mat-label>
+            <textarea matInput formControlName="message" rows="5" required></textarea>
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid || submitting">
+              <mat-icon *ngIf="submitting"><mat-spinner diameter="18"></mat-spinner></mat-icon>
+              {{ ls.lang() === 'en' ? 'Send Message' : 'Enviar Mensaje' }}
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

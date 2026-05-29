@@ -1,8 +1,85 @@
 <section class="hero">
-  <div class="hero-content">
-    <h1>{{ ls.t('home.heroTitle') }}</h1>
-    <p>{{ ls.t('home.heroSubtitle') }}</p>
-    <button mat-raised-button color="accent" routerLink="/contact">
+  <div class="overlay"></div>
+  <div class="hero-content container">
+    <h1 class="fade-in">{{ ls.t('home.heroTitle') }}</h1>
+    <p class="fade-in delay-1">{{ ls.t('home.heroSubtitle') }}</p>
+    <div class="hero-actions fade-in delay-2">
+      <button mat-raised-button color="accent" size="large" routerLink="/contact">
+        {{ ls.t('home.cta') }}
+      </button>
+      <button mat-stroked-button color="primary" routerLink="/about" style="color: white; border-color: white;">
+        {{ ls.lang() === 'en' ? 'Learn More' : 'Saber Más' }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="services-section section-padding">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>{{ ls.t('home.servicesTitle') }}</h2>
+      <div class="underline"></div>
+    </div>
+
+    <div class="services-grid">
+      <mat-card class="service-card">
+        <mat-card-header>
+          <div mat-card-avatar><mat-icon color="primary">content_cut</mat-icon></div>
+          <mat-card-title>{{ ls.t('home.services.mowing.title') }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ ls.t('home.services.mowing.desc') }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-card-header>
+          <div mat-card-avatar><mat-icon color="primary">eco</mat-icon></div>
+          <mat-card-title>{{ ls.t('home.services.cleanup.title') }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ ls.t('home.services.cleanup.desc') }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-card-header>
+          <div mat-card-avatar><mat-icon color="primary">format_paint</mat-icon></div>
+          <mat-card-title>{{ ls.t('home.services.landscaping.title') }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ ls.t('home.services.landscaping.desc') }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-card-header>
+          <div mat-card-avatar><mat-icon color="primary">architecture</mat-icon></div>
+          <mat-card-title>{{ ls.t('home.services.concrete.title') }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ ls.t('home.services.concrete.desc') }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-card-header>
+          <div mat-card-avatar><mat-icon color="primary">grass</mat-icon></div>
+          <mat-card-title>{{ ls.t('home.services.maintenance.title') }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ ls.t('home.services.maintenance.desc') }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section section-padding">
+  <div class="container text-center">
+    <h2>{{ ls.lang() === 'en' ? 'Ready to transform your yard?' : '¿Listo para transformar su patio?' }}</h2>
+    <p>{{ ls.lang() === 'en' ? 'Contact us today for a free on-site estimate.' : 'Contáctenos hoy para un presupuesto gratuito en el lugar.' }}</p>
+    <button mat-raised-button color="accent" routerLink="/contact" size="large">
       {{ ls.t('home.cta') }}
     </button>
   </div>

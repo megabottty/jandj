@@ -1,53 +1,61 @@
-<section class="page-header section-padding">
-  <div class="container">
-    <h1>{{ ls.t('about.headerTitle') }}</h1>
-    <p>{{ ls.t('about.headerSubtitle') }}</p>
+<section class="page-header section-padding text-center">
+  <div class="overlay"></div>
+  <div class="container header-content">
+    <h1 class="fade-in">{{ ls.t('about.headerTitle') }}</h1>
+    <p class="fade-in delay-1">{{ ls.t('about.headerSubtitle') }}</p>
   </div>
 </section>
 
-<div class="container">
-  <div class="about-grid">
-    <div class="about-text">
-      <h2>{{ ls.t('about.sectionTitle') }}</h2>
-      <p>{{ ls.t('about.desc1') }}</p>
-      <p>{{ ls.t('about.desc2') }}</p>
+<section class="story-section section-padding">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="sub-title">{{ ls.lang() === 'en' ? 'Our History' : 'Nuestra Historia' }}</span>
+        <h2>{{ ls.t('about.sectionTitle') }}</h2>
+        <div class="underline"></div>
+        <p>{{ ls.t('about.desc1') }}</p>
+        <p>{{ ls.t('about.desc2') }}</p>
 
-      <div class="values-grid">
-        <div class="value-item">
-          <mat-icon color="primary">check_circle</mat-icon>
-          <div>
-            <h3>{{ ls.t('about.values.v1.title') }}</h3>
-            <p>{{ ls.t('about.values.v1.desc') }}</p>
+        <div class="values-grid">
+          <div class="value-item">
+            <mat-icon color="primary">check_circle</mat-icon>
+            <div>
+              <h3>{{ ls.t('about.values.v1.title') }}</h3>
+              <p>{{ ls.t('about.values.v1.desc') }}</p>
+            </div>
           </div>
-        </div>
-        <div class="value-item">
-          <mat-icon color="primary">chat</mat-icon>
-          <div>
-            <h3>{{ ls.t('about.values.v2.title') }}</h3>
-            <p>{{ ls.t('about.values.v2.desc') }}</p>
+          <div class="value-item">
+            <mat-icon color="primary">chat</mat-icon>
+            <div>
+              <h3>{{ ls.t('about.values.v2.title') }}</h3>
+              <p>{{ ls.t('about.values.v2.desc') }}</p>
+            </div>
           </div>
-        </div>
-        <div class="value-item">
-          <mat-icon color="primary">eco</mat-icon>
-          <div>
-            <h3>{{ ls.t('about.values.v3.title') }}</h3>
-            <p>{{ ls.t('about.values.v3.desc') }}</p>
+          <div class="value-item">
+            <mat-icon color="primary">eco</mat-icon>
+            <div>
+              <h3>{{ ls.t('about.values.v3.title') }}</h3>
+              <p>{{ ls.t('about.values.v3.desc') }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="about-image">
-      <img src="assets/well-maintained-orchid-garden-in-the-spacious-backyard-of-the-house-photo.jpg" alt="Professionally Landscaped Yard">
+      <div class="about-image">
+        <img src="assets/well-maintained-orchid-garden-in-the-spacious-backyard-of-the-house-photo.jpg" alt="Professionally Landscaped Yard">
+      </div>
     </div>
   </div>
+</section>
 
-  <section class="team-section section-padding">
-    <div class="section-header">
+<section class="team-section section-padding">
+  <div class="container">
+    <div class="section-header text-center">
       <h2>{{ ls.t('about.team.title') }}</h2>
+      <div class="underline"></div>
     </div>
-    <div class="team-grid" style="display: flex; justify-content: center;">
-      <mat-card class="team-card" style="max-width: 500px;">
-        <img mat-card-image src="assets/josepicture.jpeg" alt="Jose">
+    <div class="team-grid">
+      <mat-card class="team-card mat-elevation-z8">
+        <img mat-card-image src="assets/JoseSitePic.jpeg" alt="Jose">
         <mat-card-header>
           <mat-card-title>{{ ls.t('about.team.jose.name') }}</mat-card-title>
           <mat-card-subtitle>{{ ls.t('about.team.jose.role') }}</mat-card-subtitle>
@@ -57,5 +65,5 @@
         </mat-card-content>
       </mat-card>
     </div>
-  </section>
-</div>
+  </div>
+</section>
