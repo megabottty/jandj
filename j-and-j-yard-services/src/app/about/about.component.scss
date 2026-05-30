@@ -15,9 +15,15 @@
     background: rgba(0,0,0,0.6);
   }
 
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
   .header-content {
     position: relative;
     z-index: 1;
+    width: 100%;
+    overflow: hidden;
     h1 {
       font-family: var(--heading-font);
       font-size: clamp(2.5rem, 8vw, 4rem);
@@ -41,6 +47,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
 }
 
 .sub-title {
@@ -111,6 +121,10 @@
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   border: none;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
   
   img {
     height: 500px;
@@ -125,6 +139,10 @@
     background: white;
     text-align: center;
     display: block;
+
+    @media (max-width: 600px) {
+      padding: 20px 15px;
+    }
   }
 
   mat-card-title {
@@ -147,6 +165,11 @@
   mat-card-content {
     padding: 0 30px 40px;
     text-align: center;
+
+    @media (max-width: 600px) {
+      padding: 0 20px 30px;
+    }
+
     p {
       font-weight: 300;
       opacity: 0.7;

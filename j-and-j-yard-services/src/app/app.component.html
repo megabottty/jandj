@@ -5,7 +5,9 @@
       J&J Yard Services
     </span>
     <span class="spacer"></span>
-    <div class="nav-links">
+    
+    <!-- Desktop Navigation -->
+    <div class="nav-links desktop-only">
       <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         {{ ls.t('nav.home') }}
       </button>
@@ -19,8 +21,33 @@
         <mat-icon>language</mat-icon>
       </button>
     </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <div class="mobile-only">
+      <button mat-icon-button (click)="ls.toggle()" [title]="ls.lang() === 'en' ? 'Español' : 'English'" style="margin-right: 8px;">
+        <mat-icon>language</mat-icon>
+      </button>
+      <button mat-icon-button (click)="toggleMenu()">
+        <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+      </button>
+    </div>
   </div>
 </mat-toolbar>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" [class.open]="isMenuOpen">
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+      {{ ls.t('nav.home') }}
+    </a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+      {{ ls.t('nav.about') }}
+    </a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">
+      {{ ls.t('nav.contact') }}
+    </a>
+  </nav>
+</div>
 
 <main>
   <router-outlet></router-outlet>
@@ -31,14 +58,14 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>J&J Yard Services</h3>
-        <p>Expert yard maintenance and landscaping services since 2017.</p>
+        <p>{{ ls.t('contact.footerDesc') }}</p>
         <div class="social-links">
            <mat-icon>facebook</mat-icon>
            <mat-icon>camera_alt</mat-icon>
         </div>
       </div>
       <div class="footer-links">
-        <h4>{{ ls.lang() === 'en' ? 'Quick Links' : 'Enlaces Rápidos' }}</h4>
+        <h4>{{ ls.t('contact.quickLinks') }}</h4>
         <ul>
           <li><a routerLink="/">{{ ls.t('nav.home') }}</a></li>
           <li><a routerLink="/about">{{ ls.t('nav.about') }}</a></li>
@@ -46,13 +73,13 @@
         </ul>
       </div>
       <div class="footer-contact">
-        <h4>{{ ls.lang() === 'en' ? 'Contact' : 'Contacto' }}</h4>
+        <h4>{{ ls.t('contact.contactHeading') }}</h4>
         <p><mat-icon>email</mat-icon> {{ ls.t('contact.emailAddress') }}</p>
         <p><mat-icon>phone</mat-icon> {{ ls.t('contact.phone') }}</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 J&J Yard Services. All rights reserved.</p>
+      <p>&copy; 2024 J&J Yard Services. {{ ls.t('contact.rights') }}</p>
     </div>
   </div>
 </footer>

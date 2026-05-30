@@ -10,6 +10,11 @@
   text-align: center;
   padding: 80px 0;
 
+  @media (max-width: 768px) {
+    min-height: 80vh;
+    padding: 60px 0;
+  }
+
   .overlay {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
   }
@@ -43,6 +48,8 @@
     gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    padding: 0 15px;
 
     button {
       padding: 0 40px;
@@ -77,6 +84,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 .service-card {
@@ -129,6 +141,10 @@
   text-align: center;
   padding: 100px 0;
 
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
   h2 {
     font-family: var(--heading-font);
     font-size: clamp(2rem, 6vw, 3.5rem);
@@ -161,6 +177,12 @@
     border: none;
     transition: all 0.3s;
     width: auto;
+
+    @media (max-width: 480px) {
+      padding: 0 20px;
+      height: 54px;
+      font-size: 0.9rem;
+    }
 
     @media (max-width: 480px) {
       width: 100%;

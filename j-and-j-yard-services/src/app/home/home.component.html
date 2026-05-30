@@ -8,7 +8,7 @@
         {{ ls.t('home.cta') }}
       </button>
       <button mat-stroked-button color="primary" routerLink="/about" style="color: white; border-color: white;">
-        {{ ls.lang() === 'en' ? 'Learn More' : 'Saber Más' }}
+        {{ ls.t('home.learnMore') }}
       </button>
     </div>
   </div>
@@ -77,8 +77,8 @@
 
 <section class="cta-section section-padding">
   <div class="container text-center">
-    <h2>{{ ls.lang() === 'en' ? 'Ready to transform your yard?' : '¿Listo para transformar su patio?' }}</h2>
-    <p>{{ ls.lang() === 'en' ? 'Contact us today for a free on-site estimate.' : 'Contáctenos hoy para un presupuesto gratuito en el lugar.' }}</p>
+    <h2>{{ ls.t('home.ctaTitle') }}</h2>
+    <p>{{ ls.t('home.ctaSubtitle') }}</p>
     <button mat-raised-button color="accent" routerLink="/contact" size="large">
       {{ ls.t('home.cta') }}
     </button>
