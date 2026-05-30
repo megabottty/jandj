@@ -38,7 +38,14 @@ exports.handler = async function(event, context) {
     await sgMail.send(msg);
     return { statusCode: 200, body: 'OK' };
   } catch (err) {
-    console.error(err);
-    return { statusCode: 500, body: String(err) };
+    console.error('SendGrid Error:', err);
+    if (err.response && err.response.body) {
+      console.error('SendGrid Response Body:', JSON.stringify(err.response.body, null, 2));
+      return { 
+        statusCode: err.code || 500, 
+        body: `Email Error: ${err.response.body.errors ? err.response.body.errors[0].message : err.message}` 
+      };
+    }
+    return { statusCode: 500, body: `Email Error: ${String(err)}` };
   }
 };
