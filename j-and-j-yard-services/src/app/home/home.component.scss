@@ -3,11 +3,12 @@
   background-image: url('/assets/hero.jpeg');
   background-size: cover;
   background-position: center;
-  height: 95vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   color: white;
   text-align: center;
+  padding: 80px 0;
 
   .overlay {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
@@ -18,7 +19,7 @@
     z-index: 1;
 
     h1 {
-      font-size: clamp(3rem, 10vw, 5rem);
+      font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 700;
       margin-bottom: 20px;
       line-height: 1.1;
@@ -27,7 +28,7 @@
     }
 
     p {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.8rem);
       margin-bottom: 40px;
       max-width: 800px;
       margin-left: auto;
@@ -39,18 +40,23 @@
 
   .hero-actions {
     display: flex;
-    gap: 25px;
+    gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
 
     button {
-      padding: 0 50px;
-      height: 64px;
-      font-size: 1.1rem;
-      border-radius: 0; /* Boxy like Outback */
+      padding: 0 40px;
+      height: 60px;
+      font-size: 1rem;
+      border-radius: 0;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
+      width: auto;
+      
+      @media (max-width: 480px) {
+        width: 100%;
+      }
     }
   }
 }
@@ -121,20 +127,20 @@
   background: #121212; /* Match Footer Charcoal */
   color: white;
   text-align: center;
-  padding: 120px 0;
+  padding: 100px 0;
 
   h2 {
     font-family: var(--heading-font);
-    font-size: 3.5rem;
-    margin-bottom: 25px;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
   }
 
   p {
     font-family: var(--body-font);
-    font-size: 1.4rem;
-    margin-bottom: 60px;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    margin-bottom: 40px;
     opacity: 0.6;
     max-width: 700px;
     margin-left: auto;
@@ -143,17 +149,23 @@
   }
 
   button {
-    padding: 0 80px;
-    height: 70px;
-    font-size: 1.2rem;
+    padding: 0 60px;
+    height: 64px;
+    font-size: 1.1rem;
     border-radius: 0;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     background-color: var(--accent-color);
     color: white;
     border: none;
     transition: all 0.3s;
+    width: auto;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+
     &:hover {
       background-color: white;
       color: black;

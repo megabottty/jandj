@@ -25,18 +25,32 @@
   gap: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
   
   mat-icon {
     font-size: 32px;
     width: 32px;
     height: 32px;
+    @media (max-width: 480px) {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
   }
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    gap: 0px;
+  }
 
   button {
     font-family: var(--body-font);
@@ -46,6 +60,14 @@
     font-size: 0.85rem;
     opacity: 0.8;
     transition: opacity 0.3s;
+    
+    @media (max-width: 768px) {
+      min-width: 60px;
+      padding: 0 10px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+    
     &:hover { opacity: 1; }
   }
 }
@@ -62,8 +84,12 @@ main {
 .footer {
   background: #121212; /* Very dark charcoal */
   color: white;
-  padding: 100px 0 40px;
+  padding: 80px 0 40px;
   margin-top: 0;
+
+  @media (max-width: 600px) {
+    padding: 60px 0 30px;
+  }
 
   .footer-grid {
     display: grid;
@@ -157,7 +183,7 @@ main {
 
 @media (max-width: 600px) {
   .nav-links {
-    display: none;
+    display: flex; /* Keep nav visible but compact */
   }
   .footer .footer-grid {
     grid-template-columns: 1fr;
