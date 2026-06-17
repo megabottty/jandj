@@ -2,14 +2,14 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 80px;
+  height: 90px;
   display: flex;
   align-items: center;
-  background: var(--primary-color);
+  background: white; /* Changed from var(--primary-color) to white */
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
   @media (max-width: 768px) {
-    height: 70px;
+    height: 75px;
   }
 
   .nav-container {
@@ -20,29 +20,17 @@
 }
 
 .logo {
-  font-family: var(--heading-font);
-  font-weight: 700;
-  font-size: 1.6rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: nowrap;
   
-  @media (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-  
-  mat-icon {
-    font-size: 32px;
-    width: 32px;
-    height: 32px;
+  .logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    
     @media (max-width: 480px) {
-      font-size: 24px;
-      width: 24px;
-      height: 24px;
+      height: 45px;
     }
   }
 }
@@ -64,16 +52,21 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 0.85rem;
+    color: var(--text-color); /* Added to ensure visibility on white bg */
     opacity: 0.8;
     transition: opacity 0.3s;
     
-    &:hover { opacity: 1; }
+    &:hover { 
+      opacity: 1; 
+      color: var(--primary-color);
+    }
   }
 }
 
 .mobile-only {
   display: none;
   align-items: center;
+  color: var(--text-color); /* Added */
   @media (max-width: 768px) {
     display: flex;
   }
@@ -82,14 +75,14 @@
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 70px; /* main-nav mobile height */
+  top: 75px; /* updated for new nav height */
   left: 0;
   width: 100%;
-  background: var(--primary-color);
+  background: white; /* changed from primary */
   z-index: 999;
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   visibility: hidden;
 
   @media (max-width: 768px) {
@@ -108,16 +101,16 @@
 
     a {
       padding: 15px 25px;
-      color: white;
+      color: var(--text-color); /* changed from white */
       text-decoration: none;
       font-family: var(--body-font);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
 
       &.active {
-        color: var(--accent-color);
+        color: var(--primary-color);
       }
     }
   }
@@ -133,10 +126,11 @@ main {
 }
 
 .footer {
-  background: #121212; /* Very dark charcoal */
-  color: white;
+  background: white; /* Changed from charcoal to white to make logo pop */
+  color: var(--text-color); /* Dark text */
   padding: 80px 0 40px;
   margin-top: 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
 
   @media (max-width: 600px) {
     padding: 60px 0 30px;
@@ -157,20 +151,30 @@ main {
   }
 
   .footer-brand {
-    h3 {
-      font-family: var(--heading-font);
-      font-size: 2rem;
-      font-weight: 700;
+    .footer-logo {
+      height: 100px;
+      width: auto;
       margin-bottom: 25px;
-      color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      object-fit: contain;
+      /* filter: brightness(0) invert(1); */ /* Removed inversion, keeping original logo colors */
     }
     p {
-      opacity: 0.6;
+      opacity: 0.8;
       margin-bottom: 35px;
       font-weight: 300;
       line-height: 1.8;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+      mat-icon {
+        color: var(--primary-color);
+        cursor: pointer;
+        transition: transform 0.3s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
@@ -182,7 +186,7 @@ main {
       margin-bottom: 30px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--white);
+      color: var(--text-color);
     }
     ul {
       list-style: none;
@@ -191,15 +195,15 @@ main {
       li {
         margin-bottom: 15px;
         a {
-          color: white;
+          color: var(--text-color);
           text-decoration: none;
-          opacity: 0.6;
+          opacity: 0.7;
           transition: all 0.3s;
           font-weight: 400;
           &:hover { 
             opacity: 1; 
             padding-left: 5px;
-            color: var(--accent-color);
+            color: var(--primary-color);
           }
         }
       }
@@ -208,25 +212,25 @@ main {
       display: flex;
       align-items: center;
       gap: 15px;
-      opacity: 0.6;
+      opacity: 0.8;
       margin-bottom: 20px;
       font-weight: 300;
       mat-icon {
         font-size: 22px;
         width: 22px;
         height: 22px;
-        color: var(--accent-color);
+        color: var(--primary-color);
       }
     }
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(0,0,0,0.05);
     padding-top: 40px;
     text-align: center;
     p {
       font-size: 0.85rem;
-      opacity: 0.4;
+      opacity: 0.6;
       font-weight: 300;
       letter-spacing: 1px;
     }

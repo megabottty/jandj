@@ -1,8 +1,6 @@
 .page-header {
   position: relative;
-  background-image: url('/assets/hero.jpeg');
-  background-size: cover;
-  background-position: center;
+  background-color: var(--accent-color);
   color: white;
   padding: 120px 0;
   text-align: center;
@@ -12,7 +10,7 @@
   }
 
   .overlay {
-    background: rgba(0,0,0,0.6);
+    background: transparent;
   }
 
   @media (max-width: 768px) {

@@ -1,5 +1,5 @@
 .contact-page {
-  background: var(--primary-color); /* Set background to green to match nav */
+  background: var(--light-bg); /* Changed from primary to light-bg */
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .contact-info {
-  background: var(--primary-color);
+  background: var(--accent-color);
   color: white;
   padding: 60px;
   border-radius: 0;

@@ -1,8 +1,6 @@
 .hero {
   position: relative;
-  background-image: url('/assets/hero.jpeg');
-  background-size: cover;
-  background-position: center;
+  background-color: var(--accent-color); /* Nice solid grey from CSS variables */
   min-height: 95vh;
   display: flex;
   align-items: center;
@@ -16,7 +14,7 @@
   }
 
   .overlay {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+    background: transparent;
   }
 
   .hero-content {
@@ -172,7 +170,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background-color: var(--accent-color);
+    background-color: var(--primary-color); /* Updated to primary red */
     color: white;
     border: none;
     transition: all 0.3s;
