@@ -25,12 +25,14 @@
   align-items: center;
   
   .logo-img {
+    /* Explicit box (358x200 source, 1.79:1) so the image never shifts layout. */
     height: 60px;
-    width: auto;
+    width: 107px;
     object-fit: contain;
     
     @media (max-width: 480px) {
       height: 45px;
+      width: 81px;
     }
   }
 }
@@ -119,6 +121,7 @@
 .active {
   color: var(--accent-color) !important;
   font-weight: 700 !important;
+  opacity: 1 !important; /* keep contrast >= 4.5:1 on white */
 }
 
 main {
@@ -153,7 +156,7 @@ main {
   .footer-brand {
     .footer-logo {
       height: 100px;
-      width: auto;
+      width: 179px;
       margin-bottom: 25px;
       object-fit: contain;
       /* filter: brightness(0) invert(1); */ /* Removed inversion, keeping original logo colors */
@@ -179,7 +182,7 @@ main {
   }
 
   .footer-links, .footer-contact {
-    h4 {
+    h3 {
       font-family: var(--heading-font);
       font-size: 1.25rem;
       font-weight: 700;
@@ -230,7 +233,7 @@ main {
     text-align: center;
     p {
       font-size: 0.85rem;
-      opacity: 0.6;
+      color: #666666;
       font-weight: 300;
       letter-spacing: 1px;
     }

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
 import { LanguageService } from './language.service';
 
 @Component({
@@ -17,8 +16,7 @@ import { LanguageService } from './language.service';
     RouterLinkActive,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
-    MatMenuModule
+    MatIconModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

@@ -2,15 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>J&J Yard Services</title>
+  <title>J&J Yard Services | Landscaping, Lawn Care & Concrete</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="J&J Yard Services offers professional lawn mowing, landscaping, seasonal cleanup, sprinkler systems and custom concrete work. Locally owned since 2017. Get a free estimate.">
+  <meta name="theme-color" content="#d32e2e">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/material-icons.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+  <!-- Static copy of the contact form so Netlify Forms can detect it at build time. -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <input type="text" name="subject">
+    <textarea name="message"></textarea>
+    <input type="text" name="bot-field">
+  </form>
 </body>
 </html>

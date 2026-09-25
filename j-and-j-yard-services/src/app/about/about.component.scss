@@ -35,7 +35,6 @@
     p {
       font-family: var(--body-font);
       font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      opacity: 0.9;
       font-weight: 300;
       letter-spacing: 1.5px;
       line-height: 1.6;
@@ -99,6 +98,7 @@
 .about-image {
   img {
     width: 100%;
+    height: auto;
     display: block;
     position: relative;
     z-index: 1;

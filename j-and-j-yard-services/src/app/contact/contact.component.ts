@@ -6,7 +6,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LanguageService } from '../language.service';
 
@@ -21,7 +20,6 @@ import { LanguageService } from '../language.service';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatSelectModule,
     MatProgressSpinnerModule
   ],
   templateUrl: './contact.component.html',
@@ -45,17 +43,19 @@ export class ContactComponent {
     this.submitting = true;
     this.success = this.error = '';
     try {
-      const res = await fetch('/.netlify/functions/send-email', {
+      // Submit to Netlify Forms (the static form in index.html registers it).
+      const data = new URLSearchParams({ 'form-name': 'contact', 'bot-field': '' });
+      Object.entries(this.form.value).forEach(([k, v]) => data.set(k, v ?? ''));
+      const res = await fetch('/', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(this.form.value)
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: data.toString()
       });
       if (res.ok) {
         this.success = this.ls.t('contact.success');
         this.form.reset();
       } else {
-        const text = await res.text();
-        this.error = `${this.ls.t('contact.error')}: ${text}`;
+        this.error = `${this.ls.t('contact.error')} (${res.status})`;
       }
     } catch (e) {
       this.error = String(e);

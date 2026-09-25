@@ -1,5 +1,85 @@
 /* Global Styles */
-@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@use '@angular/material' as mat;
+
+/* Self-hosted fonts (latin subsets). Fallback faces use metric overrides so
+   swapping the web font in does not shift the layout. */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/assets/fonts/montserrat-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+  size-adjust: 110.99%;
+  ascent-override: 87.21%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/playfair-display-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display Fallback';
+  src: local('Georgia'), local('Times New Roman');
+  size-adjust: 104.6%;
+  ascent-override: 103.44%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+/* Material Icons, subset to only the icons used on this site. */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/assets/fonts/material-icons.woff2') format('woff2');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Angular Material theme: same deep-purple/amber palettes as the previous
+   prebuilt theme, but only the components this site actually uses. */
+$primary: mat.define-palette(mat.$deep-purple-palette);
+$accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$theme: mat.define-light-theme((
+  color: (primary: $primary, accent: $accent),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.core();
+@include mat.core-theme($theme);
+@include mat.typography-hierarchy($theme);
+@include mat.toolbar-theme($theme);
+@include mat.button-theme($theme);
+@include mat.icon-button-theme($theme);
+@include mat.icon-theme($theme);
+@include mat.card-theme($theme);
+@include mat.form-field-theme($theme);
+@include mat.input-theme($theme);
+@include mat.progress-spinner-theme($theme);
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -12,8 +92,8 @@
   --text-color: #333333;
   --light-bg: #f8f9fa;
   --white: #ffffff;
-  --heading-font: 'Playfair Display', serif;
-  --body-font: 'Montserrat', sans-serif;
+  --heading-font: 'Playfair Display', 'Playfair Display Fallback', serif;
+  --body-font: 'Montserrat', 'Montserrat Fallback', sans-serif;
 }
 
 body {

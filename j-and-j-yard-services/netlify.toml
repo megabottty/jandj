@@ -1,12 +1,24 @@
 [build]
   command = "npm run build"
   publish = "dist/j-and-j-yard-services/browser"
-  functions = "netlify/functions"
 
-# Note: set SENDGRID_API_KEY, RECIPIENT_EMAIL, FROM_EMAIL in Netlify UI (Site settings > Build & deploy > Environment)
+# The contact form uses Netlify Forms (see the hidden form in src/index.html).
+# Enable form detection under Site configuration > Forms, then add an
+# email notification under Forms > Form notifications.
 
+# Prerendered routes: serve each page's own static HTML.
+[[redirects]]
+  from = "/about"
+  to = "/about/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 200
+
+# Everything else falls back to the app shell.
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true

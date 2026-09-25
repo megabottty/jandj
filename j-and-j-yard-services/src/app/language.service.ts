@@ -25,7 +25,8 @@ export class LanguageService {
           cleanup: { title: 'Spring/Fall Cleanup', desc: 'Complete debris removal and seasonal prep.' },
           landscaping: { title: 'Landscaping', desc: 'Transforming your yard with plants, mulch, and design.' },
           concrete: { title: 'Concrete Work', desc: 'Professional installation of patios, walkways, and driveways.' },
-          maintenance: { title: 'Garden Maintenance', desc: 'Weeding, pruning, and health care for your plants.' }
+          maintenance: { title: 'Garden Maintenance', desc: 'Weeding, pruning, and health care for your plants.' },
+          sprinklers: { title: 'Sprinkler Systems', desc: 'Expert installation and reliable repair services to keep your lawn hydrated.' }
         },
         ctaTitle: 'Ready to transform your yard?',
         ctaSubtitle: 'Contact us today for a free on-site estimate.'
@@ -90,7 +91,8 @@ export class LanguageService {
           cleanup: { title: 'Limpieza de Primavera/Otoño', desc: 'Eliminación completa de escombros y preparación estacional.' },
           landscaping: { title: 'Paisajismo', desc: 'Transformando su patio con plantas, abono y diseño.' },
           concrete: { title: 'Trabajos de Concreto', desc: 'Instalación profesional de patios, caminos y entradas.' },
-          maintenance: { title: 'Mantenimiento de Jardines', desc: 'Deshierbe, poda y cuidado de la salud de sus plantas.' }
+          maintenance: { title: 'Mantenimiento de Jardines', desc: 'Deshierbe, poda y cuidado de la salud de sus plantas.' },
+          sprinklers: { title: 'Sistemas de Riego', desc: 'Instalación experta y servicios de reparación confiables para mantener su césped hidratado.' }
         },
         ctaTitle: '¿Listo para transformar su patio?',
         ctaSubtitle: 'Contáctenos hoy para un presupuesto gratuito en el lugar.'
@@ -150,5 +152,6 @@ export class LanguageService {
 
   toggle() {
     this.lang.set(this.lang() === 'en' ? 'es' : 'en');
+    document.documentElement.lang = this.lang();
   }
 }
