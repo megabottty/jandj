@@ -71,8 +71,8 @@ $theme: mat.m2-define-light-theme((
   density: 0,
 ));
 
-@include mat.core();
-@include mat.core-theme($theme);
+@include mat.elevation-classes();
+@include mat.app-background();
 @include mat.typography-hierarchy($theme);
 @include mat.toolbar-theme($theme);
 @include mat.button-theme($theme);

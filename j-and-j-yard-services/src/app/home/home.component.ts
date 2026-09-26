@@ -7,11 +7,10 @@ import { RouterLink } from '@angular/router';
 import { LanguageService } from '../language.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatIconModule, RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    imports: [CommonModule, MatButtonModule, MatCardModule, MatIconModule, RouterLink],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   ls = inject(LanguageService);
