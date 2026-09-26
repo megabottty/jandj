@@ -29,16 +29,32 @@
 
     <mat-card class="contact-card">
       <mat-card-content>
-        <div *ngIf="success" class="success-msg">
-          <mat-icon>check_circle</mat-icon>
-          <span>{{ success }}</span>
-        </div>
+        @if (status === 'sent') {
+          <div class="sent-panel" role="status" aria-live="polite" tabindex="-1" #sentPanel>
+            <mat-icon class="sent-icon" aria-hidden="true">check_circle</mat-icon>
+            <h3>{{ ls.t('contact.sentTitle') }}</h3>
+            <p>{{ sentMessage }}</p>
+            <p class="sent-hint">{{ ls.t('contact.sentHint') }}</p>
+            <button mat-stroked-button type="button" (click)="reset()">{{ ls.t('contact.sendAnother') }}</button>
+          </div>
+        } @else {
+        @if (status === 'error') {
+          <div class="error-msg" role="alert">
+            <div class="error-head">
+              <mat-icon aria-hidden="true">error_outline</mat-icon>
+              <strong>{{ ls.t('contact.errorTitle') }}</strong>
+            </div>
+            <p>{{ errorKind === 'network' ? ls.t('contact.errorOffline') : ls.t('contact.errorBody') }}</p>
+            <p class="error-fallback">
+              {{ ls.t('contact.errorFallback') }}
+              <a href="mailto:jandjyardservices64@gmail.com">jandjyardservices64&#64;gmail.com</a>
+              {{ ls.t('contact.or') }}
+              <a href="tel:+18015747943">{{ ls.t('contact.phone') }}</a>
+            </p>
+          </div>
+        }
 
-        <div *ngIf="error" class="error-msg">
-          {{ error }}
-        </div>
-
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form" [attr.aria-busy]="status === 'sending'">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>{{ ls.t('contact.nameLabel') }}</mat-label>
             <input matInput formControlName="name" required>
@@ -67,12 +83,19 @@
           </mat-form-field>
 
           <div class="form-actions">
-            <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid || submitting">
-              <mat-icon *ngIf="submitting"><mat-spinner diameter="18"></mat-spinner></mat-icon>
-              {{ ls.t('contact.sendButton') }}
+            <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid || status === 'sending'">
+              @if (status === 'sending') {
+                <mat-spinner diameter="18" aria-hidden="true"></mat-spinner>
+                {{ ls.t('contact.sending') }}
+              } @else if (status === 'error') {
+                {{ ls.t('contact.tryAgain') }}
+              } @else {
+                {{ ls.t('contact.sendButton') }}
+              }
             </button>
           </div>
         </form>
+        }
       </mat-card-content>
     </mat-card>
   </div>
