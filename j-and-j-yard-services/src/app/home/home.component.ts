@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,7 +8,7 @@ import { LanguageService } from '../language.service';
 
 @Component({
     selector: 'app-home',
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatIconModule, RouterLink],
+    imports: [MatButtonModule, MatCardModule, MatIconModule, RouterLink],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })
