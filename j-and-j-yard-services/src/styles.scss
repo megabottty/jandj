@@ -35,13 +35,15 @@
   descent-override: 24%;
   line-gap-override: 0%;
 }
-/* Material Icons, subset to only the icons used on this site. */
+/* Material Icons, subset to only the icons used on this site.
+   Fonts are cached immutably for a year, so bump the -vN suffix (here, in
+   index.html and on disk) whenever the file's contents change. */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url('/assets/fonts/material-icons.woff2') format('woff2');
+  src: url('/assets/fonts/material-icons-v2.woff2') format('woff2');
 }
 .material-icons {
   font-family: 'Material Icons';
