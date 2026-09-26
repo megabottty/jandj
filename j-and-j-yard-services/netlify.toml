@@ -2,12 +2,6 @@
   command = "npm run build"
   publish = "dist/j-and-j-yard-services/browser"
 
-[build.environment]
-  # RECIPIENT_EMAIL / FROM_EMAIL are leftovers from the old SendGrid function and
-  # hold the public business address, which legitimately appears on the site.
-  # Exclude them from Netlify's secret scanner; SENDGRID_API_KEY stays scanned.
-  SECRETS_SCAN_OMIT_KEYS = "RECIPIENT_EMAIL,FROM_EMAIL"
-
 # The contact form uses Netlify Forms (see the hidden form in src/index.html).
 # Enable form detection under Site configuration > Forms, then add an
 # email notification under Forms > Form notifications.
