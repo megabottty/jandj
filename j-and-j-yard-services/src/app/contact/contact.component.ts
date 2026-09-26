@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +21,7 @@ import { LanguageService } from '../language.service';
     MatProgressSpinnerModule
 ],
     templateUrl: './contact.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {

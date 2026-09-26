@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { LanguageService } from '../language.service';
     selector: 'app-about',
     imports: [MatCardModule, MatIconModule],
     templateUrl: './about.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './about.component.scss'
 })
 export class AboutComponent {
