@@ -1,10 +1,11 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
-  lang = signal<'en' | 'es'>('en');
+  readonly lang = signal<'en' | 'es'>('en');
+  private readonly dict = computed(() => this.translations[this.lang()]);
 
   private translations: any = {
     en: {
@@ -159,10 +160,10 @@ export class LanguageService {
     }
   };
 
+  /** Look up a dotted key such as 'contact.sentTitle' in the active language. */
   t(key: string): string {
-    const keys = key.split('.');
-    let result = this.translations[this.lang()];
-    for (const k of keys) {
+    let result: any = this.dict();
+    for (const k of key.split('.')) {
       if (result) result = result[k];
     }
     return result || key;

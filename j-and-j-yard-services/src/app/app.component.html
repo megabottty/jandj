@@ -26,15 +26,15 @@
       <button mat-icon-button (click)="ls.toggle()" [title]="ls.lang() === 'en' ? 'Español' : 'English'" [attr.aria-label]="ls.lang() === 'en' ? 'Cambiar a Español' : 'Switch to English'" style="margin-right: 8px;">
         <mat-icon aria-hidden="true">language</mat-icon>
       </button>
-      <button mat-icon-button (click)="toggleMenu()" [attr.aria-label]="isMenuOpen ? 'Close menu' : 'Open menu'" [attr.aria-expanded]="isMenuOpen">
-        <mat-icon aria-hidden="true">{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+      <button mat-icon-button (click)="toggleMenu()" [attr.aria-label]="isMenuOpen() ? 'Close menu' : 'Open menu'" [attr.aria-expanded]="isMenuOpen()">
+        <mat-icon aria-hidden="true">{{ isMenuOpen() ? 'close' : 'menu' }}</mat-icon>
       </button>
     </div>
   </div>
 </mat-toolbar>
 
 <!-- Mobile Menu Overlay -->
-<div class="mobile-menu" [class.open]="isMenuOpen">
+<div class="mobile-menu" [class.open]="isMenuOpen()">
   <nav>
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
       {{ ls.t('nav.home') }}

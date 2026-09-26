@@ -10,7 +10,7 @@ import { LanguageService } from '../language.service';
     selector: 'app-home',
     imports: [MatButtonModule, MatCardModule, MatIconModule, RouterLink],
     templateUrl: './home.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: './home.component.scss'
 })
 export class HomeComponent {

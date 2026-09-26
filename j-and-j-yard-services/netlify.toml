@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "dist/j-and-j-yard-services/browser"
 
+[build.environment]
+  # Angular 22 needs Node 22.22.3+ or 24.15+.
+  NODE_VERSION = "24"
+
 # The contact form uses Netlify Forms (see the hidden form in src/index.html).
 # Enable form detection under Site configuration > Forms, then add an
 # email notification under Forms > Form notifications.

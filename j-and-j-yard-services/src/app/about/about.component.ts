@@ -8,7 +8,7 @@ import { LanguageService } from '../language.service';
     selector: 'app-about',
     imports: [MatCardModule, MatIconModule],
     templateUrl: './about.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: './about.component.scss'
 })
 export class AboutComponent {
